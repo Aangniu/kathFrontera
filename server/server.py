@@ -1,6 +1,8 @@
 import hashlib
 import jinja2
 
+import time
+
 import misfits_kath
 import scipy.interpolate as sp_int
 
@@ -99,12 +101,12 @@ class SeisSol(umbridge.Model):
 
         n_recs = [1,2,7,16,18,19,20,21,22,23,24,44,48,49,50,51,57,59,61,64]
 
-        m_alphas = [misfits_kath.misfit("../kathmandu/output", "../kathmandu/output", "M7.8FL34_0.1Hztopo5km_o3ga5e2c1e1_o3jan18_50s", i) for i in n_recs]
+        m_alphas = [misfits_kath.misfit(run_id, "output", "M7.8FL34_0.1Hztopo5km_o3ga5e2c1e1_o3jan18_50s", i) for i in n_recs]
 
         n_timeSeries = 74
 
         m_timeSeries = misfits_kath.read_receiver(\
-            misfits_kath.find_receiver("../kathmandu/output", "M7.8FL34_0.1Hztopo5km_o3ga5e2c1e1_o3jan18_50s", n_timeSeries))
+            misfits_kath.find_receiver("output", "M7.8FL34_0.1Hztopo5km_o3ga5e2c1e1_o3jan18_50s", n_timeSeries))
 
         times = np.linspace(0.0,49.999,80)
 

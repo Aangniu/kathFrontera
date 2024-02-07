@@ -56,7 +56,7 @@ def misfit(directory_simulation, directory_reference, prefix, number):
 if __name__ == "__main__":
     directory_simulation = "simulation"
     directory_reference = "reference"
-    prefix = "tpv5"
+    prefix = "kathmandu"
 
     for i in range(1, 6):
         receiver_simulation = read_receiver(find_receiver(directory_simulation, prefix, i))
