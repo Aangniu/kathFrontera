@@ -1,0 +1,108 @@
+!Switch
+[rho, mu0, lambda0, gammaR, xi0, mu, lambda, gamma, epsxx_alpha, epsyy_alpha, epszz_alpha, epsxy_alpha, epsyz_alpha, epszx_alpha, Cd, Qp, Qs]: !Any
+  components:
+    - !GroupFilter
+      groups: 1
+      components: !ConstantMap
+        map:
+          rho:    1400
+          mu0:     56000000
+          lambda0: 14000000
+          gammaR: {{ par1_gammaR }}
+          xi0:    1.0
+          mu:    56000000
+          lambda: 14000000
+          gamma:  0.0
+          epsxx_alpha: -0.00
+          epsyy_alpha: -0.00
+          epszz_alpha: -0.00
+          epsxy_alpha: 0.00
+          epsyz_alpha: 0.00
+          epszx_alpha: 0.00
+          Cd: {{ par2_Cd }}
+          Qp: 20
+          Qs: 10
+    - !GroupFilter
+      groups: 2
+      components: !ConstantMap
+        map:
+          rho:     2700
+          mu0:     {{ par3_mu0 }}
+          lambda0: {{ par4_lamb0 }}
+          gammaR: 1000000000000000000000000000000
+          xi0:    1.0
+          mu:     {{ par3_mu0 }}
+          lambda: {{ par4_lamb0 }}
+          gamma:  0.0
+          epsxx_alpha: -0.0
+          epsyy_alpha: -0.0
+          epszz_alpha: -0.0
+          epsxy_alpha: 0.0
+          epsyz_alpha: 0.0
+          epszx_alpha: 0.0
+          Cd:     1.0
+          Qp: 325
+          Qs: 162.5
+    - !GroupFilter
+      groups: 3
+      components: !ConstantMap
+        map:
+          rho:    2700
+          mu0:    34992000000
+          lambda0: 11739000000
+          gammaR: 1000000000000000000000000000000
+          xi0:    1.0
+          mu:     34992000000
+          lambda: 11739000000
+          gamma:  0.0
+          epsxx_alpha: -0.0
+          epsyy_alpha: -0.0
+          epszz_alpha: -0.0
+          epsxy_alpha: 0.0
+          epsyz_alpha: 0.0
+          epszx_alpha: 0.0
+          Cd: 1.0
+          Qp: 360
+          Qs: 180
+    - !GroupFilter
+      groups: 4
+      components: !ConstantMap
+        map:
+          rho:    2900
+          mu0:    37584000000
+          lambda0: 32741000000
+          gammaR: 1000000000000000000000000000000
+          xi0:    1.0
+          mu:     37584000000
+          lambda: 32741000000
+          gamma:  0.0
+          epsxx_alpha: -0.0
+          epsyy_alpha: -0.0
+          epszz_alpha: -0.0
+          epsxy_alpha: 0.0
+          epsyz_alpha: 0.0
+          epszx_alpha: 0.0
+          Cd: 1.0
+          Qp: 360
+          Qs: 180
+    - !GroupFilter
+      groups: 5
+      components: !ConstantMap
+        map:
+          rho:    3300
+          mu0:     66825000000
+          lambda0: 82863000000
+          gammaR: 1000000000000000000000000000000
+          xi0:    1.0
+          mu:    66825000000
+          lambda: 82863000000
+          gamma:  0.0
+          epsxx_alpha: -0.0
+          epsyy_alpha: -0.0
+          epszz_alpha: -0.0
+          epsxy_alpha: 0.0
+          epsyz_alpha: 0.0
+          epszx_alpha: 0.0
+          Cd: 1.0
+          Qp: 450
+          Qs: 225
