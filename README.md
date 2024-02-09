@@ -37,5 +37,6 @@ The server takes four arguments.
 SeisSol records the wave field at 178 receivers.
 The server returns the L2 norm between a reference solution and the simulation
 result at 20 stations for the damage variable and one strong motion station KTP.
-Furthermore, the server returns the sum of the misfits squared, which can be a
+Furthermore, the server returns the 20 time averaged damage & time series at KTP, which can be a
 first candidate for the logLikelihood.
+The reference data are stored in `kathmandu/output/`.
