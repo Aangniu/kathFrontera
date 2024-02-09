@@ -39,4 +39,5 @@ The server returns the L2 norm between a reference solution and the simulation
 result at 20 stations for the damage variable and one strong motion station KTP.
 Furthermore, the server returns the 20 time averaged damage & time series at KTP, which can be a
 first candidate for the logLikelihood.
+
 The reference data are stored in `kathmandu/output/`.
