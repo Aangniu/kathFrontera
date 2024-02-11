@@ -85,7 +85,7 @@ git clone -b damaged-material-nonlinear-drB https://github.com/SeisSol/SeisSol.g
 cd SeisSol && git submodule update --init
 for o in 3; do
   mkdir -p build_cpu && cd build_cpu
-  CC=mpicc CXX=mpicxx cmake .. -DCMAKE_PREFIX_PATH=/home/tools -DGEMM_TOOLS_LIST=auto -DASAGI=ON -DNETCDF=ON -DORDER=${o} -DEQUATIONS="damaged-elastic" -DHOST_ARCH=skx -DCMAKE_BUILD_TYPE=Release -DPRECISION=double
+  CC=mpicc CXX=mpicxx cmake .. -DCMAKE_PREFIX_PATH=/home/tools -DGEMM_TOOLS_LIST=LIBXSMM -DASAGI=ON -DNETCDF=ON -DORDER=${o} -DEQUATIONS="damaged-elastic" -DHOST_ARCH=skx -DCMAKE_BUILD_TYPE=Release -DPRECISION=double
   make -j$(nproc) && cp SeisSol* /home/tools/bin
   cd ..
 done
