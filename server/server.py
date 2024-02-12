@@ -28,9 +28,9 @@ def seissol_command(run_id="", ranks=4):
 
 
 class SeisSol(umbridge.Model):
-    def __init__(self, ranks, model_name, sleep_time):
+    def __init__(self, ranks):
         self.name = "SeisSol"
-        self._sleep_time = sleep_time
+        # self._sleep_time = sleep_time
         self.ranks = ranks
         super().__init__("forward")
 
@@ -90,7 +90,7 @@ class SeisSol(umbridge.Model):
             config["meshFile"] = "model_0p1Hz"
         run_id = self.prepare_filesystem(parameters, config)
 
-        time.sleep(self._sleep_time)
+        # time.sleep(self._sleep_time)
 
         command = seissol_command(run_id, self.ranks)
         print(command)
@@ -129,9 +129,9 @@ if __name__ == "__main__":
 
     umbridge.serve_models(
         [
-            SeisSol(ranks = ranks, model_name="parameter_to_observable_map_fine", sleep_time=1),
-            SeisSol(ranks = ranks, model_name="parameter_to_observable_map_intermediate", sleep_time=0.6),
-            SeisSol(ranks = ranks, model_name="parameter_to_observable_map_coarse", sleep_time=0.3),
+            SeisSol(ranks = ranks),
+            # SeisSol(ranks = ranks, model_name="parameter_to_observable_map_intermediate", sleep_time=0.6),
+            # SeisSol(ranks = ranks, model_name="parameter_to_observable_map_coarse", sleep_time=0.3),
         ],
         port=4243,
         max_workers=100,
