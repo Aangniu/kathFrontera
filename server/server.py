@@ -62,6 +62,7 @@ class SeisSol(umbridge.Model):
         )
         with open(os.path.join(run_id, "Nepal_material_chain.yaml"), "w+") as mat_file:
             mat_file.write(mat_content)
+
         parameter_template = environment.get_template("parameters_template.par")
         parameter_content = parameter_template.render(
             output_dir=run_id,
@@ -106,11 +107,11 @@ class SeisSol(umbridge.Model):
         n_timeSeries = 74
 
         m_timeSeries = misfits_kath.read_receiver(\
-            misfits_kath.find_receiver("output", "M7.8FL34_0.1Hztopo5km_o3ga5e2c1e1_o3jan18_50s", n_timeSeries))
+            misfits_kath.find_receiver(run_id, "M7.8FL34_0.1Hztopo5km_o3ga5e2c1e1_o3jan18_50s", n_timeSeries))
 
-        times = np.linspace(0.0,49.999,80)
+        times = np.linspace(6.0,49.999,80)
 
-        interpolator = sp_int.interp1d(m_timeSeries["Time"], m_timeSeries['v1'])
+        interpolator = sp_int.interp1d(m_timeSeries["Time"], m_timeSeries['v3'])
 
         v_interpolated = interpolator(times)
 
