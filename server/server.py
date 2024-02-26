@@ -25,7 +25,7 @@ def seissol_command(run_id="", ranks=4):
         return f"not supported yet for nonlinear seissol"
     else:
         return f"mpiexec.hydra -n {ranks} -machinefile $HQ_NODE_FILE apptainer run ../seissol.sif SeisSol_Release_dskx_3_damaged-elastic {run_id}/parameters.par"
-
+        # return f"mpiexec.hydra -n {ranks} -machinefile $HQ_NODE_FILE apptainer run ../seissol_ela.sif SeisSol_Release_dskx_3_elastic {run_id}/parameters.par"
 
 class SeisSol(umbridge.Model):
     def __init__(self, ranks):
@@ -83,6 +83,12 @@ class SeisSol(umbridge.Model):
         my_env["TACC_AFFINITY_ENABLED"] = "1"
         my_env["OMP_NUM_THREADS"] = "54"
         my_env["OMP_PLACES"] = "cores(54)"
+        #my_env[""]
+        my_env["ASYNC_MODE"] = "THREAD"
+        my_env["ASYNC_BUFFER_ALIGNMENT"] = "8388608"
+        my_env["I_MPI_SHM_HEAP_VSIZE"] = "65536"
+        my_env["XDMFWRITER_ALIGNMENT"] = "8388608"
+        my_env["XDMFWRITER_BLOCK_SIZE"] = "8388608"
         return my_env
 
     def __call__(self, parameters, config):
@@ -133,6 +139,6 @@ if __name__ == "__main__":
             # SeisSol(ranks = ranks, model_name="parameter_to_observable_map_intermediate", sleep_time=0.6),
             # SeisSol(ranks = ranks, model_name="parameter_to_observable_map_coarse", sleep_time=0.3),
         ],
-        port=4243,
+        port=port,
         max_workers=100,
     )
