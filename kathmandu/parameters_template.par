@@ -70,7 +70,7 @@ FixTimeStep = 5
 
 
 &Output
-OutputFile = '{{ output_dir }}/M7.8FL34_0.1Hztopo5km_o3ga5e2c1e1_o3jan18_50s'
+OutputFile = '{{ output_dir }}/kathResults'
 Format = 10                          ! Format (10= no output, 6=hdf5 output)
 !             |stress     |vel
 iOutputMask = 0 0 0 0 0 0 0 0 0
@@ -95,7 +95,7 @@ ReceiverOutputInterval = 0.2
 /
 
 &AbortCriteria
-EndTime =50.0
+EndTime = 50.0
 /
 
 &Analysis
