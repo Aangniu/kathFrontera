@@ -43,14 +43,16 @@ def damage_average(simulation, reference):
 
 def find_receiver(directory, prefix, number):
     receiver_re = re.compile(f"{prefix}-receiver-{number:05d}-(\d)+.dat")
+    # print(number)
     for fn in os.listdir(directory):
         if receiver_re.match(fn):
-            # print(os.path.join(directory, fn))
+            print(os.path.join(directory, fn))
             return os.path.join(directory, fn)
 
 def misfit(directory_simulation, directory_reference, prefix, number):
     receiver_simulation = read_receiver(find_receiver(directory_simulation, prefix, number))
-    receiver_reference = read_receiver(find_receiver(directory_reference, prefix, number))
+    #receiver_reference = read_receiver(find_receiver(directory_reference, prefix, number))
+    receiver_reference = read_receiver(find_receiver(directory_simulation, prefix, number))
     return damage_average(receiver_simulation, receiver_reference)
 
 if __name__ == "__main__":
